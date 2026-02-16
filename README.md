@@ -9,9 +9,9 @@ From findings in our Random Forest Regression we were able to accuartely predict
 
 This allows us to give indepth statistically retrieved insights to remarketing companies on resale value. It also allowed us to gain insight on which features cause under or over valuations - this will allow companies to understand where value is lost in resale and where cars are overpriced to reduce stock hold and loss of revenue.
 
-The final model was built on autotrader listing prices between 2017-2023 in the UK. This is a broad approach that can be tailored to the remarketing companies stock and previous sales data to create a unique soloution.
+The final model was built on autotrader listing prices on cars regostered between 1992-2023 in the UK. This is a broad approach that can be tailored to the remarketing companies stock and previous sales data to create a unique soloution.
 
-## Key Takeaways 
+# Key Takeaways 
 
 Vehicle value is driven primarily by vehicle condition, age, regulatory standard, and usage intensity, rather than brand or cosmetic characteristics. 
 
@@ -170,6 +170,72 @@ A-class, ASX, Accent, Accord, Adam, Agila, Almera, Almera Tino, Alpina, Alto, Am
 # Methodology 
 
 **Notes on Methodology**
+
+We assigned Log_Price as our target and performed supervised learning throughout the research. Evaluation Metrics aligned with best practise for regression models and was consistent throughout. By evaluating the value of our residuals we were able to observe accuracy and learn from the discrepancies.
+
+### Data Cleaning 
+
+Our dataset had very little need for cleaning. We had missing values that were either dropped or imputed./
+
+### EDA 
+
+We found that the listings showed cars registered between 1992-2023. The price average was £5789 and there was a large variance in price typically ranging between ~ £3,250 and £8,250.
+
+![alt text](image-3.png)
+
+We found that there was a negative correlation between price and mileage and price and age after removing illogical outliers.
+
+![alt text](image-4.png)
+
+![alt text](image-5.png)
+
+
+When isolating engine size bins against price we found the correlation followed a simliar negative distrtibution for each engine type for small-large with performance engines having less of a trend and greater outliers.
+
+This allowed us to determine that outliers would most likely fall into this engine size category and could be related to specific highly desired vehicles. However we saw the greatest variance in price in the medium sized engine with the greatest outliers but also being the most common engine size in our data.
+
+![alt text](image-6.png)
+
+## Feature Engineering 
+
+When creating our new features we added depreciation features such as; mileage per year and age bands. We also added vehicle usage intensity, expected vs actual mileage and owners per year.
+
+A log transformation was applied to our right skewed features (mileage and age).
+
+Other features included model oriented features such as Premium brand indicator, Model Name and Brand Name. 
+
+Obeserving Brand vs price we found the highest brand mean values were in BMW, Audi, Nissan, Mercedes and Volkswagen with Mercedes having the widest distribution.
+
+![alt text](image-7.png)
+
+Vehicle size features such as a door category and family suitable car were added for insights into practicality driving prices.
+
+Additional features included; engine per seat ratio,service history age relationship and premium age interaction.
+
+## Preprocessing 
+
+In preparation we first split our target variable from our other features. We then removed any features we added for analysis that were indicative of price;
+- `Price_per_Seat`
+
+- `Price_per_Year_Age`
+
+- `Brand_Avg_Price`
+
+- `Model_Avg_Price`
+
+We one hot encoded all categorical features; 'Fuel type','Body type', 'Gearbox','Emission Class','Engine_Bin', 'Age_Band','Brand','Model','Usage_Level', and 'Door_Category'.
+
+We then created our test/train split ready for modelling.
+
+## Logistic Regression 
+
+Address Later 
+
+## Random Forest Regression 
+
+## Model Evaluation 
+
+## Conclusion
 
 
 
