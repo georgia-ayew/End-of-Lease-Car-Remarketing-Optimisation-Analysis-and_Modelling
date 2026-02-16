@@ -23,9 +23,21 @@ Built a predictive model to estimate UK vehicle resale value and optimise end-of
 
 ## Key Insights from Residuals
 
+![alt text](image-2.png)
+
+![alt text](image.png)
+
 **Residuals** = Actual Price – Predicted Price
 
 **Undervalued Vehicles (sell for more than predicted):**
+
+| Vehicle | Actual Price (£) | Predicted Price (£) | Residual (£) |
+| ------- | ---------------- | ------------------- | ------------ |
+| #276    | 15,499           | 2,503               | 12,996       |
+| #671    | 10,994           | 3,663               | 7,331        |
+| #522    | 20,499           | 14,791              | 5,708        |
+| #307    | 11,496           | 5,816               | 5,680        |
+| #66     | 12,494           | 6,847               | 5,647        |
 
 - Example: Low mileage, family-friendly, or premium models
 
@@ -35,6 +47,14 @@ Built a predictive model to estimate UK vehicle resale value and optimise end-of
 
 **Overvalued Vehicles (sell for less than predicted):**
 
+| Vehicle | Actual Price (£) | Predicted Price (£) | Residual (£) |
+| ------- | ---------------- | ------------------- | ------------ |
+| #33     | 4,299            | 8,854               | -4,555       |
+| #479    | 2,998            | 7,328               | -4,330       |
+| #9      | 6,792            | 10,866              | -4,074       |
+| #35     | 3,399            | 6,620               | -3,221       |
+| #520    | 9,994            | 13,198              | -3,204       |
+
 - Example: Older, high-mileage, or less popular models
 
 - Average negative residual: up to £4,500
@@ -42,6 +62,8 @@ Built a predictive model to estimate UK vehicle resale value and optimise end-of
 - Action: Avoid overpricing these vehicles; consider promotions or faster turnover.
 
 ## Segment-Level Learnings
+
+![alt text](image-1.png)
 
 - Vehicles grouped by Emission Class, Age Band, and Engine size reveal patterns:
 
