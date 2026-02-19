@@ -6,15 +6,58 @@ Built a predictive model to estimate UK vehicle resale value and optimise end-of
 
 This model provides a data-driven framework for Residual Value (RV) Management. While age and mileage are the baseline drivers of depreciation, our analysis reveals high-alpha opportunities for remarketing teams to capture hidden value by timing sales around technical and market-specific lifecycle shifts.
 
-# Key Insights
+# Actionable Insights 
 
-**Lifecycle vs Age**: The Late Lifecycle feature is a more significant predictor of value loss than an additional year of age. Selling an asset 3–6 months before a manufacturer facelift or new generation launch preserves an average of 8-12% more value than selling post-launch.
+## Lifecycle Timing: Avoiding the "Generation Cliff"
 
-**Segment-Specific Mileage Sensitivity:** Depreciation isn't linear. For Premium Brands, the model identifies a "Value Plateau" between 40k and 60k miles. Conversely, for Volume Brands, passing the 60k-mile mark (typical end of extended warranties) triggers a sharp non-linear drop in desirability.
+The model identifies Lifecycle_Stage_Late as a high-risk indicator for rapid depreciation. When a manufacturer releases a new facelift or generation, the previous model's desirability drops instantly.
 
-**Brand Strength:** SHAP analysis confirms that Brand Strength acts as a price stabilizer. Even with higher mileage, premium badges (Audi, BMW, Mercedes) maintain a significantly higher "Exit Price" compared to budget brands with identical specs, suggesting these assets can be held longer in lease portfolios without major ROI decay.
+**Strategic Recommendation:** Implement an Early Exit Program. Monitor assets flagged as "Late Lifecycle" and offer customers incentives to upgrade 3–6 months before the new model launch.
 
-**Powertrain Premium:** In the current market, the model shows a widening gap in ROI for Automatic vs. Manual transmissions and Euro 6 compliant engines. Remarketing teams should prioritize "Retail-Ready" channels for automatics while moving manuals through faster wholesale auctions to minimize holding costs.
+**ROI Optimisation:** Capturing the "Current Model" premium before the market is flooded with previous-gen stock can preserve 8-12% of an asset's residual value compared to waiting for contract maturity.
+
+## Segment-Specific Mileage Arbitrage
+
+Depreciation is non-linear. Using Mileage_per_Year, the model identifies "Value Plateaus"—mileage brackets where the price remains stable despite continued use.
+
+**Strategic Recommendation:** Deploy Extension Tactics for under-utilized assets. If the model identifies a plateau (e.g., between 40k and 60k miles for premium brands), these vehicles are prime candidates for lease extensions.
+
+**ROI Optimisation:** By keeping a vehicle in service during a plateau, you maximize rental income with negligible impact on the final disposal price, significantly increasing the total lifetime ROI of the asset.
+
+## Regional and Regulatory Reallocation
+
+With Emission Class_Euro 6 and Fuel type acting as primary price drivers, geography becomes a lever for profit. Regulatory shifts like ULEZ create artificial "highs" and "lows" in market value.
+
+**Strategic Recommendation:** Execute Geographic Arbitrage. Use the model to identify assets that are "High Risk" in urban zones (Euro 5 or below) and move them to rural auction hubs.
+
+**ROI Optimisation:** Reallocating Euro 6 and Hybrid stock to urban retail-ready channels captures a "Compliance Premium," while moving older stock to less regulated areas ensures faster stock-turn and prevents aged-inventory write-downs.
+
+## Spec-Driven Channel Selection
+
+SHAP analysis reveals that features like Gearbox_Manual or certain Body types (e.g., MPVs) carry a heavy "liquidity penalty," especially in the premium segment.
+
+**Strategic Recommendation:** Automate Tiered Disposal Channels. Use the model's predicted margin to automatically route stock:
+
+- High-Spec/Auto/SUV: Direct to B2C (Retail) platforms to capture maximum margin.
+
+- Low-Spec/Manual/Hatchback: Direct to B2B (Wholesale) auctions to minimize holding costs.
+
+**ROI Optimisation:** By identifying "Liquidity Traps" early, you avoid the high holding costs of cars that sit on retail lots for 60+ days, ensuring capital is recycled back into higher-performing assets.
+
+## Remarketing Risk Score Formula 
+
+RiskScore=0.4(Lifecycle)+0.3(DepreciationPhase)+0.2(LiquidityFactor)+0.1(UsageBias)
+
+This allows fleet managers to better understand wether assets are stable or require remarketing to prevent profit loss on a scale of 1-10.
+
+**8-10 Critical Exit:** Sell within 14 days. Asset is likely in "Late Lifecycle" and losing value rapidly. Use wholesale auctions for speed.
+
+**5-7 Retail Target:** Active Marketing. High-demand specs (e.g., SUVs) that are entering Mid-Lifecycle. Use B2C channels to capture retail margin.
+
+**3-4 Hold/Extend:** Maximize Utility. Asset is in a "Value Plateau." Can be kept in service or leased longer with minimal ROI impact.
+
+**1-2 Prime Stock:** Premium Hold. Likely a new-model Hybrid/SUV with high brand strength. These are "Safe Havens" for capital.
+
 
 
 ## Business Problem 
@@ -197,9 +240,12 @@ Fitting 5 folds for each of 50 candidates, totalling 250 fits
 **R²:** 0.9156614907016334
 
 
-# Model Evaluation 
+
+# Model Evaluation 
 
 ## Residual Analysis
+
+![alt text](image-8.png)
 
 **Log-space residuals:** The residuals are fairly evenly scattered around zero with no obvious trend, indicating that the model fits the log-transformed target reasonably well. Most predictions are close to the true log-values, and there are no extreme systematic biases.
 
@@ -220,6 +266,8 @@ The combination of SHAP plots and residuals suggests good predictive performance
 
 ### SHAP Summary Plot (impact on output)
 
+![alt text](image-9.png)
+
 Top positive/negative drivers of price:
 Car_Age: The most important feature; newer cars (low age) push predicted prices higher, older cars lower.
 Lifecycle Stage: Late-stage cars (Lifecycle_Stage_Late_True/False) significantly affect price — newer lifecycle stages increase value, later stages decrease it.
@@ -228,6 +276,8 @@ Brand_Strength: Stronger brands positively influence car value.
 Engine: Larger engine size slightly increases price.
 
 ### SHAP Feature Importance (bar plot)
+
+![alt text](image-10.png)
 
 **Confirms the ranking of features:**
 
@@ -293,116 +343,3 @@ Explore interaction terms (e.g., Age × Mileage) for subtle patterns.
 
 
 
-
-
-
-
-## Segment-Level Learnings
-
-![alt text](image-1.png)
-
-- Vehicles grouped by Emission Class, Age Band, and Engine size reveal patterns:
-
-- Euro 6, low mileage, family cars → consistently undervalued → pricing opportunity
-
-- Older, smaller engines → often overvalued → adjust acquisition/pricing strategy
-
-- Using binned engine categories improves clarity of segment-level insights.
-
-=========================
-
-## Recommendations
-
-**Pricing Strategy:**
-
-- Increase prices on undervalued segments by £500–£1,500 depending on residual magnitude.
-
-- Reduce prices on overvalued segments to accelerate sales and reduce holding costs.
-
-**Inventory Planning:**
-
-- Prioritise acquisition of vehicles that historically outperform predictions (low mileage, family-friendly, Euro 6).
-
-- Avoid over-investing in segments that tend to underperform.
-
-**Marketing:**
-
-- Promote undervalued vehicles prominently to maximize ROI.
-
-- Highlight key features undervalued by the model (engine size, Euro class, mileage).
-
-**Model Monitoring & Refinement:**
-
-- Re-train periodically with new sales data.
-
-- Consider segment-specific models for rare/premium vehicles to reduce extreme residuals.
-
-=========================
-
-## Model Performance
-
-**Model Used:** 
-
-- Random Forest Regression (trained on historical UK Vehicle Sale Data 2023-2017)
-
-**Target:**
-
-- Vehicle Price (log transformed for modelling)
-
-**Accuracy Metrics** 
-
-- **R²**: 0.9 (90% of price variability explained)
-- **RMSE**: £1,427 avergae deviation from predicted price 
-- **MAE**: £846 average error per vehicle
-
-=========================
-
-## Key Insights from Residuals
-
-![alt text](image-2.png)
-
-![alt text](image.png)
-
-**Residuals** = Actual Price – Predicted Price
-
-**Undervalued Vehicles (sell for more than predicted):**
-
-| Vehicle | Actual Price (£) | Predicted Price (£) | Residual (£) |
-| ------- | ---------------- | ------------------- | ------------ |
-| #276    | 15,499           | 2,503               | 12,996       |
-| #671    | 10,994           | 3,663               | 7,331        |
-| #522    | 20,499           | 14,791              | 5,708        |
-| #307    | 11,496           | 5,816               | 5,680        |
-| #66     | 12,494           | 6,847               | 5,647        |
-
-- Example: Low mileage, family-friendly, or premium models
-
-- Average positive residual: up to £13,000
-
-- Action: Highlight these vehicles in listings, consider pricing slightly higher to maximize revenue.
-
-**Overvalued Vehicles (sell for less than predicted):**
-
-| Vehicle | Actual Price (£) | Predicted Price (£) | Residual (£) |
-| ------- | ---------------- | ------------------- | ------------ |
-| #33     | 4,299            | 8,854               | -4,555       |
-| #479    | 2,998            | 7,328               | -4,330       |
-| #9      | 6,792            | 10,866              | -4,074       |
-| #35     | 3,399            | 6,620               | -3,221       |
-| #520    | 9,994            | 13,198              | -3,204       |
-
-- Example: Older, high-mileage, or less popular models
-
-- Average negative residual: up to £4,500
-
-- Action: Avoid overpricing these vehicles; consider promotions or faster turnover.
-
-=========================
-
-
-
-
-Our Random Forest model demonstrates strong predictive performance for car pricing. Predictions on the test set are generally accurate, with errors evenly distributed across most price ranges. While some deviation occurs for higher-priced vehicles, this is expected due to the log-transformation applied during training. Overall, the model reliably captures the main factors that drive car value.
-
-The analysis of feature importance provides clear insights into what determines a car’s price. Car age is the most influential factor: newer cars command higher prices, while older cars decrease in value. Lifecycle stage and mileage per year also strongly impact pricing, with cars in earlier stages and lower annual mileage valued more. Brand strength contributes positively, indicating that vehicles from more reputable brands maintain higher prices. Other factors such as engine size and gearbox type have smaller, but still meaningful, effects.
-These insights align closely with real-world expectations and can guide strategic decisions in pricing, inventory management, and customer recommendations. For instance, emphasising low-mileage, newer, or premium-brand vehicles can optimize sales value. Additionally, future improvements could focus on high-priced cars to further reduce prediction errors, potentially by including more specialised features or interaction terms. 
