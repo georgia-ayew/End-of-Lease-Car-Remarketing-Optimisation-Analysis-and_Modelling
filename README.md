@@ -18,7 +18,7 @@ The model identifies Lifecycle_Stage_Late as a high-risk indicator for rapid dep
 
 ## Segment-Specific Mileage Arbitrage
 
-Depreciation is non-linear. Using Mileage_per_Year, the model identifies Value Plateaus — mileage brackets where the price remains stable despite continued use.
+Depreciation is non-linear. Using Mileage_per_Year, the model identifies "Value Plateaus" — mileage brackets where the price remains stable despite continued use.
 
 **Strategic Recommendation:** Deploy Extension Tactics for under-utilised assets. If the model identifies a plateau (e.g., between 40k and 60k miles for premium brands), these vehicles are prime candidates for lease extensions.
 
@@ -30,11 +30,11 @@ With Emission Class_Euro 6 and Fuel type acting as primary price drivers, geogra
 
 **Strategic Recommendation:** Execute Geographic Arbitrage. Use the model to identify assets that are High Risk in urban zones (Euro 5 or below) and move them to rural auction hubs.
 
-**ROI Optimisation:** Reallocating Euro 6 and Hybrid stock to urban retail-ready channels captures a Compliance Premium, while moving older stock to less regulated areas ensures faster stock-turn and prevents aged-inventory write-downs.
+**ROI Optimisation:** Reallocating Euro 6 and Hybrid stock to urban retail-ready channels captures a Compliance Premium, whilst moving older stock to less regulated areas ensures faster stock-turn and prevents aged-inventory write-downs.
 
 ## Spec-Driven Channel Selection
 
-SHAP analysis reveals that features like Gearbox_Manual or certain Body types (e.g., MPVs) carry a heavy liquidity penalty, especially in the premium segment.
+SHAP analysis reveals that features like Gearbox_Manual or certain body types (e.g., MPVs) carry a heavy liquidity penalty, especially in the premium segment.
 
 **Strategic Recommendation:** Automate Tiered Disposal Channels. Use the model's predicted margin to automatically route stock:
 
@@ -48,7 +48,7 @@ SHAP analysis reveals that features like Gearbox_Manual or certain Body types (e
 
 **RiskScore=0.4(Lifecycle)+0.3(DepreciationPhase)+0.2(LiquidityFactor)+0.1(UsageBias)**
 
-This allows fleet managers to better understand wether assets are stable or require remarketing to prevent profit loss on a scale of 1-10.
+This allows Fleet Managers to better understand whether assets are stable or require remarketing to prevent loss of profit on a scale of 1-10.
 
 **8-10 Critical Exit:** Sell within 14 days. Asset is likely in Late Lifecycle and losing value rapidly. Use wholesale auctions for speed.
 
@@ -58,6 +58,15 @@ This allows fleet managers to better understand wether assets are stable or requ
 
 **1-2 Prime Stock:** Premium Hold. Likely a new-model Hybrid/SUV with high brand strength. These are "Safe Havens" for capital.
 
+### How to Calculate 
+
+**Lifecycle (40%):** If Lifecycle_Stage_Late = 1, assign 10 pts. If Mid = 5, if New = 1.
+
+**Depreciation Phase (30%):** Scaled value of your Depreciation_Phase feature. Higher values = steeper loss curves.
+
+**Liquidity Factor (20%):** If Gearbox_Manual = 1, add 8 pts (Harder to sell). If Body_type_SUV = 1, subtract 3 pts (High demand).
+
+**Usage Bias (10%):** If Mileage_per_Year is >20% above the fleet average, assign 10 pts.
 
 
 ## Business Problem 
