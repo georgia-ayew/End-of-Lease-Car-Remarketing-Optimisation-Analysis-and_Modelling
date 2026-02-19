@@ -269,11 +269,16 @@ The combination of SHAP plots and residuals suggests good predictive performance
 ![alt text](image-9.png)
 
 Top positive/negative drivers of price:
-Car_Age: The most important feature; newer cars (low age) push predicted prices higher, older cars lower.
-Lifecycle Stage: Late-stage cars (Lifecycle_Stage_Late_True/False) significantly affect price — newer lifecycle stages increase value, later stages decrease it.
-Mileage_per_Year: Higher mileage reduces price; lower mileage increases price.
-Brand_Strength: Stronger brands positively influence car value.
-Engine: Larger engine size slightly increases price.
+
+- Car_Age: The most important feature; newer cars (low age) push predicted prices higher, older cars lower.
+
+- Lifecycle Stage: Late-stage cars (Lifecycle_Stage_Late_True/False) significantly affect price — newer lifecycle stages increase value, later stages decrease it.
+
+- Mileage_per_Year: Higher mileage reduces price; lower mileage increases price.
+
+- Brand_Strength: Stronger brands positively influence car value.
+
+- Engine: Larger engine size slightly increases price.
 
 ### SHAP Feature Importance (bar plot)
 
