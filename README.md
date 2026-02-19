@@ -10,7 +10,7 @@ This model provides a data-driven framework for Residual Value (RV) Management. 
 
 ## Lifecycle Timing
 
-The model identifies Lifecycle_Stage_Late as a high-risk indicator for rapid depreciation. When a manufacturer releases a new facelift or generation, the previous model's desirability drops instantly.
+The model identifies Lifecycle_Stage_Late as a high-risk indicator for rapid depreciation. When a manufacturer releases a new facelift or generation, the previous model's desirability drops instantly, by a spread of 8-12%.
 
 **Strategic Recommendation:** Implement an Early Exit Program. Monitor assets flagged as Late Lifecycle and offer customers incentives to upgrade 3–6 months before the new model launch.
 
@@ -18,7 +18,7 @@ The model identifies Lifecycle_Stage_Late as a high-risk indicator for rapid dep
 
 ## Segment-Specific Mileage Arbitrage
 
-Depreciation is non-linear. Using Mileage_per_Year, the model identifies Value Plateaus—mileage brackets where the price remains stable despite continued use.
+Depreciation is non-linear. Using Mileage_per_Year, the model identifies Value Plateaus — mileage brackets where the price remains stable despite continued use.
 
 **Strategic Recommendation:** Deploy Extension Tactics for under-utilized assets. If the model identifies a plateau (e.g., between 40k and 60k miles for premium brands), these vehicles are prime candidates for lease extensions.
 
