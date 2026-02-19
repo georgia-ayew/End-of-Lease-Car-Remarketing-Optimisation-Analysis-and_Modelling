@@ -54,7 +54,7 @@ This allows Fleet Managers to better understand whether assets are stable or req
 
 **5-7 Retail Target:** Active Marketing. High-demand specs (e.g., SUVs) that are entering Mid-Lifecycle. Use B2C channels to capture retail margin.
 
-**3-4 Hold/Extend:** Maximise Utility. Asset is in a Value Plateau. Can be kept in service or leased longer with minimal ROI impact.
+**3-4 Hold/Extend:** Maximise Utility. Asset is in a "Value Plateau". Can be kept in service or leased longer with minimal ROI impact.
 
 **1-2 Prime Stock:** Premium Hold. Likely a new-model Hybrid/SUV with high brand strength. These are "Safe Havens" for capital.
 
