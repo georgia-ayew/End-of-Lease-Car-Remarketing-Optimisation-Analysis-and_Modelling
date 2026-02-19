@@ -18,7 +18,7 @@ The model identifies Lifecycle_Stage_Late as a high-risk indicator for rapid dep
 
 ## Segment-Specific Mileage Arbitrage
 
-Depreciation is non-linear. Using Mileage_per_Year, the model identifies "Value Plateaus"—mileage brackets where the price remains stable despite continued use.
+Depreciation is non-linear. Using Mileage_per_Year, the model identifies Value Plateaus—mileage brackets where the price remains stable despite continued use.
 
 **Strategic Recommendation:** Deploy Extension Tactics for under-utilized assets. If the model identifies a plateau (e.g., between 40k and 60k miles for premium brands), these vehicles are prime candidates for lease extensions.
 
@@ -26,15 +26,15 @@ Depreciation is non-linear. Using Mileage_per_Year, the model identifies "Value 
 
 ## Regional and Regulatory Reallocation
 
-With Emission Class_Euro 6 and Fuel type acting as primary price drivers, geography becomes a lever for profit. Regulatory shifts like ULEZ create artificial highs and "lows" in market value.
+With Emission Class_Euro 6 and Fuel type acting as primary price drivers, geography becomes a lever for profit. Regulatory shifts like ULEZ create artificial highs and lows in market value.
 
-**Strategic Recommendation:** Execute Geographic Arbitrage. Use the model to identify assets that are "High Risk" in urban zones (Euro 5 or below) and move them to rural auction hubs.
+**Strategic Recommendation:** Execute Geographic Arbitrage. Use the model to identify assets that are High Risk in urban zones (Euro 5 or below) and move them to rural auction hubs.
 
 **ROI Optimisation:** Reallocating Euro 6 and Hybrid stock to urban retail-ready channels captures a "Compliance Premium," while moving older stock to less regulated areas ensures faster stock-turn and prevents aged-inventory write-downs.
 
 ## Spec-Driven Channel Selection
 
-SHAP analysis reveals that features like Gearbox_Manual or certain Body types (e.g., MPVs) carry a heavy "liquidity penalty," especially in the premium segment.
+SHAP analysis reveals that features like Gearbox_Manual or certain Body types (e.g., MPVs) carry a heavy liquidity penalty, especially in the premium segment.
 
 **Strategic Recommendation:** Automate Tiered Disposal Channels. Use the model's predicted margin to automatically route stock:
 
@@ -54,7 +54,7 @@ This allows fleet managers to better understand wether assets are stable or requ
 
 **5-7 Retail Target:** Active Marketing. High-demand specs (e.g., SUVs) that are entering Mid-Lifecycle. Use B2C channels to capture retail margin.
 
-**3-4 Hold/Extend:** Maximize Utility. Asset is in a "Value Plateau." Can be kept in service or leased longer with minimal ROI impact.
+**3-4 Hold/Extend:** Maximize Utility. Asset is in a Value Plateau. Can be kept in service or leased longer with minimal ROI impact.
 
 **1-2 Prime Stock:** Premium Hold. Likely a new-model Hybrid/SUV with high brand strength. These are "Safe Havens" for capital.
 
