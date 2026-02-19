@@ -58,7 +58,7 @@ This allows Fleet Managers to better understand whether assets are stable or req
 
 **1-2 Prime Stock:** Premium Hold. Likely a new-model Hybrid/SUV with high brand strength. These are "Safe Havens" for capital.
 
-### How to Calculate 
+## How to Calculate 
 
 **Lifecycle (40%):** If Lifecycle_Stage_Late = 1, assign 10 pts. If Mid = 5, if New = 1.
 
