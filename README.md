@@ -89,7 +89,7 @@ We will do a preliminary Logistic Regression to observe feature importance and e
 
 # The Data 
 
-The dataset contains data sourced from Autotrader UK, a leading automotive marketplace website. There are 3,685 data points each representing a unique vehicle listing and distinct features.
+There are 3,685 data points each representing a unique vehicle listing and distinct features.
 
 Our aim is to use analytics and modelling tools to create actionable insights on feature importance in remarketing value. This will enable remarketing companies to predict vehicle sale value and decide when best to remarket vehicles to maximise return.
 
